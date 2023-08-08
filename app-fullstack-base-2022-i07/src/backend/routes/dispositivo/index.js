@@ -14,4 +14,16 @@ routerDispositivo.get('/', function(req, res) {
     });
 })
 
+routerDispositivo.get('/:dispositivoId/mediciones', function(req, res) {
+    const dispositivoId = req.params.dispositivoId;
+
+    pool.query('SELECT * FROM Mediciones WHERE dispositivoId = ?', [dispositivoId], function(err, result, fields) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.status(200).send(result);
+    });
+});
+
 module.exports = routerDispositivo
