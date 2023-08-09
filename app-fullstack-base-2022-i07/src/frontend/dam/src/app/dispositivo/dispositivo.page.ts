@@ -5,8 +5,9 @@ import { DispositivoService } from '../services/dispositivo.service'
 @Component({
   selector: 'app-dispositivo',
   templateUrl: './dispositivo.page.html',
-  styleUrls: ['./dispositivo.page.scss'],
+  styleUrls: ['./dispositivo.page.scss']
 })
+
 
 export class DispositivoPage implements OnInit {
 
@@ -27,5 +28,6 @@ export class DispositivoPage implements OnInit {
       .catch((error) => {
         console.log(error)
       })
+    console.log(this.dispositivoMediciones);
   }
 }

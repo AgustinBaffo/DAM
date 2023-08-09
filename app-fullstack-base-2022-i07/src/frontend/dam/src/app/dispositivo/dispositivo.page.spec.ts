@@ -1,3 +1,4 @@
+import {MatTableModule} from '@angular/material/table'
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DispositivoPage } from './dispositivo.page';
 

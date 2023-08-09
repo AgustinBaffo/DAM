@@ -17,4 +17,23 @@
       </ion-item>
     </ion-list>
   </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Fecha</th>
+        <th>Valor</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicion of dispositivoMediciones">
+        <td>{{ medicion.medicionId }}</td>
+        <td>{{ medicion.fecha | dateFormat  }}</td>
+        <td>{{ medicion.valor }}</td>
+        <td>{{ medicion.valor }}</td>
+      </tr>
+    </tbody>
+  </table>
 </ion-content>

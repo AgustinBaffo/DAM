@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, fromEvent, interval, map } from 'rxjs';
-import { DispositivoService } from '../services/dispositivo.service'
+import { DispositivoService } from '../services/dispositivo.service';
 
 @Component({
   selector: 'app-dispositivos',
