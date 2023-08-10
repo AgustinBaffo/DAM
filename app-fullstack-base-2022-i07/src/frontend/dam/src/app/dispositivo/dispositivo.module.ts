@@ -8,6 +8,7 @@ import { DispositivoPageRoutingModule } from './dispositivo-routing.module';
 
 import { DispositivoPage } from './dispositivo.page';
 import { DateFormatPipe } from '../pipes/date-format.pipe';
+import { Med2State } from '../pipes/med2State.pipe';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { DateFormatPipe } from '../pipes/date-format.pipe';
     IonicModule,
     DispositivoPageRoutingModule,
   ],
-  declarations: [DispositivoPage, DateFormatPipe]
+  declarations: [DispositivoPage, DateFormatPipe, Med2State]
 })
 export class DispositivoPageModule {}

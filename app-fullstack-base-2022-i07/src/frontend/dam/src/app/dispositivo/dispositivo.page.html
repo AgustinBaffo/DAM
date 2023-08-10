@@ -30,9 +30,9 @@
     <tbody>
       <tr *ngFor="let medicion of dispositivoMediciones">
         <td>{{ medicion.medicionId }}</td>
-        <td>{{ medicion.fecha | dateFormat  }}</td>
+        <td>{{ medicion.fecha | dateFormat }}</td>
         <td>{{ medicion.valor }}</td>
-        <td>{{ medicion.valor }}</td>
+        <td>{{ medicion.valor | med2State }}</td>
       </tr>
     </tbody>
   </table>
