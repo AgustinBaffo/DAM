@@ -1,39 +1,26 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Dispositivo {{ dispositivoId }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <div *ngIf="dispositivoMediciones">
-    <h2>Mediciones del Dispositivo {{ dispositivoId }}</h2>
-    <ion-list>
-      <ion-item *ngFor="let medicion of dispositivoMediciones">
-        <ion-label>
-          <h3>Medición ID: {{ medicion.medicionId }}</h3>
-          <p>Fecha: {{ medicion.fecha }}</p>
-          <p>Valor: {{ medicion.valor }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Fecha</th>
-        <th>Valor</th>
-        <th>Estado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let medicion of dispositivoMediciones">
-        <td>{{ medicion.medicionId }}</td>
-        <td>{{ medicion.fecha | dateFormat }}</td>
-        <td>{{ medicion.valor }}</td>
-        <td>{{ medicion.valor | med2State }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <ion-grid>
+    <ion-row class="header-row">
+      <ion-col class="header-col">ID</ion-col>
+      <ion-col class="header-col">Fecha</ion-col>
+      <ion-col class="header-col">Valor</ion-col>
+      <ion-col class="header-col">Estado</ion-col>
+    </ion-row>
+    <div *ngIf="dispositivoMediciones">
+      <ion-row *ngFor="let medicion of dispositivoMediciones">
+        <ion-col>{{ medicion.medicionId }}</ion-col>
+        <ion-col>{{ medicion.fecha | dateFormat }}</ion-col>
+        <ion-col>{{ medicion.valor }}</ion-col>
+        <ion-col>{{ medicion.valor | med2State }}</ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+
 </ion-content>
