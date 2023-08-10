@@ -13,6 +13,10 @@ export class DispositivoService {
     return firstValueFrom(this._http.get('http://localhost:8000/dispositivo'));
   }
 
+  getListadoDispositivosConValores (): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivos'));
+  }
+
   getMedicionesByDispositivoId(dispositivoId: number): Promise<any> {
     return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${dispositivoId}/mediciones`));
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DispositivoService } from '../services/dispositivo.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,20 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  devicesAndValues: any[] = [];  
+  
+  constructor(private dispositivoService: DispositivoService) {}
+
+  async ngOnInit() {
+    // await this.dispositivoService.getListadoDispositivosConValores()
+    await this.dispositivoService.getListadoDispositivos()
+      .then((dispositivos) => {
+        console.log(dispositivos)
+        this.devicesAndValues = dispositivos;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
 }
