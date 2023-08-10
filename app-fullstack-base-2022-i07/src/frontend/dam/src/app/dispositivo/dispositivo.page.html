@@ -8,14 +8,14 @@
 
   <ion-grid>
     <ion-row class="header-row">
-      <ion-col class="header-col">ID</ion-col>
+      <!-- <ion-col class="header-col">ID</ion-col> -->
       <ion-col class="header-col">Fecha</ion-col>
       <ion-col class="header-col">Valor</ion-col>
       <ion-col class="header-col">Estado</ion-col>
     </ion-row>
     <div *ngIf="dispositivoMediciones">
       <ion-row *ngFor="let medicion of dispositivoMediciones">
-        <ion-col>{{ medicion.medicionId }}</ion-col>
+        <!-- <ion-col>{{ medicion.medicionId }}</ion-col> -->
         <ion-col>{{ medicion.fecha | dateFormat }}</ion-col>
         <ion-col>{{ medicion.valor }}</ion-col>
         <ion-col>{{ medicion.valor | med2State }}</ion-col>
