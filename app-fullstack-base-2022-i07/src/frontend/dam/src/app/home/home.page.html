@@ -13,14 +13,14 @@
     <ion-col class="header-col">Id</ion-col>
     <ion-col class="header-col">Nombre</ion-col>
     <ion-col class="header-col">Ubicacion</ion-col>
-    <!-- <ion-col class="header-col">Estado</ion-col> -->
+    <ion-col class="header-col">Estado</ion-col>
   </ion-row>
   <div *ngIf="devicesAndValues">
     <ion-row *ngFor="let device of devicesAndValues" routerLink="/dispositivo/{{ device.dispositivoId }}">
       <ion-col>{{ device.dispositivoId }}</ion-col>
       <ion-col>{{ device.nombre }}</ion-col>
       <ion-col>{{ device.ubicacion }}</ion-col>
-      <!-- <ion-col>{{ device.valor | med2State }}</ion-col> -->
+      <ion-col>{{ device.valor | med2State }}</ion-col>
     </ion-row>
   </div>
   </ion-grid>

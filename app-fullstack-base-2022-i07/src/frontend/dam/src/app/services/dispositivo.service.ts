@@ -13,11 +13,11 @@ export class DispositivoService {
     return firstValueFrom(this._http.get('http://localhost:8000/dispositivo'));
   }
 
-  getListadoDispositivosConValores (): Promise<any> {
-    return firstValueFrom(this._http.get('http://localhost:8000/dispositivos'));
+  getListadoDispositivosConEstados (): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivosEstados'));
   }
 
-  getMedicionesByDispositivoId(dispositivoId: number): Promise<any> {
-    return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${dispositivoId}/mediciones`));
+  getMedicionesByDispositivoId(id: number): Promise<any> {
+    return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/mediciones`));
   }
 }

@@ -13,6 +13,7 @@ export class HomePage {
   constructor(private dispositivoService: DispositivoService) {}
 
   async ngOnInit() {
+    // TODO: add state
     // await this.dispositivoService.getListadoDispositivosConValores()
     await this.dispositivoService.getListadoDispositivos()
       .then((dispositivos) => {

@@ -56,7 +56,8 @@ app.listen(PORT, function (req, res) {
     console.log("NodeJS API running correctly");
 });
 
-app.get('/dispositivos/', function (req, res, next) {
+// TODO fix or remove
+app.get('/dispositivosEstados/', function (req, res, next) {
     const query = `
         SELECT d.dispositivoId, d.nombre, d.ubicacion, m.valor, m.fecha
         FROM Dispositivos d

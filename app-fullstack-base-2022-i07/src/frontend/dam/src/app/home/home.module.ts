@@ -5,10 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
-import { Med2State } from '../pipes/med2State.pipe';
-
-
+import { Med2State } from '../pipes/med2State.pipe'; // TODO: shold be removed
 @NgModule({
   imports: [
     CommonModule,
