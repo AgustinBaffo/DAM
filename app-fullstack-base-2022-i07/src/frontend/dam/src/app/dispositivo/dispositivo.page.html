@@ -21,7 +21,11 @@
         <ion-col>{{ medicion.medicionId }}</ion-col>
         <ion-col>{{ medicion.fecha | dateFormat }}</ion-col>
         <ion-col>{{ medicion.valor }}</ion-col>
-        <ion-col>{{ medicion.valor | med2State }}</ion-col>
+        <ion-col>
+          <span [ngStyle]="stateBackgroundColor(medicion.valor)" class="medicion-state">
+            {{ medicion.valor | med2State }}
+          </span>
+        </ion-col>
       </ion-row>
     </div>
   </ion-grid>

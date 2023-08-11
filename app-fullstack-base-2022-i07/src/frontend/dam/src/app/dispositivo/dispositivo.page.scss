@@ -11,15 +11,24 @@
     border-right: 2px solid #ddd;
   }
   
-  .header-col {
-    padding: 10px;
-  }
-  
-  ion-row {
-    border-bottom: 1px solid var(--ion-color-medium);
-  }
-  
-  ion-col {
-    padding: 10px;
-  }
-  
+.header-col {
+  padding: 10px;
+}
+
+ion-row {
+  border-bottom: 1px solid var(--ion-color-medium);
+}
+
+ion-col {
+  padding: 10px;
+}
+
+.medicion-state {
+  background-color: gray;
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  line-height: 30px;
+}

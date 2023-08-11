@@ -20,7 +20,11 @@
       <ion-col>{{ device.dispositivoId }}</ion-col>
       <ion-col>{{ device.nombre }}</ion-col>
       <ion-col>{{ device.ubicacion }}</ion-col>
-      <ion-col>{{ device.valor | med2State }}</ion-col>
+      <ion-col>
+        <span [ngStyle]="stateBackgroundColor(device.valor)" class="medicion-state">
+          {{ device.valor | med2State }}
+        </span>
+      </ion-col>
     </ion-row>
   </div>
   </ion-grid>
