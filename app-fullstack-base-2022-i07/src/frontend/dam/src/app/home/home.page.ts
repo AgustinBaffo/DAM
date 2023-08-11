@@ -14,8 +14,7 @@ export class HomePage {
 
   async ngOnInit() {
     // TODO: add state
-    // await this.dispositivoService.getListadoDispositivosConValores()
-    await this.dispositivoService.getListadoDispositivos()
+    await this.dispositivoService.getListadoDispositivosConEstados()
       .then((dispositivos) => {
         console.log(dispositivos)
         this.devicesAndValues = dispositivos;

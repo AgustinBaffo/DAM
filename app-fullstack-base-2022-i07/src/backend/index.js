@@ -56,41 +56,21 @@ app.listen(PORT, function (req, res) {
     console.log("NodeJS API running correctly");
 });
 
-// TODO fix or remove
 app.get('/dispositivosEstados/', function (req, res, next) {
+    /// @TODO: Deberia usar MAX(fecha) pero cuando como hay fechas repetidas devuelve sensores repetidos
     const query = `
         SELECT d.dispositivoId, d.nombre, d.ubicacion, m.valor, m.fecha
         FROM Dispositivos d
-        LEFT JOIN Mediciones m ON d.dispositivoId = m.dispositivoId
-        WHERE m.fecha = (
-            SELECT MAX(fecha)
+        LEFT JOIN (
+            SELECT Mediciones.dispositivoId, Mediciones.valor, Mediciones.fecha
             FROM Mediciones
-            WHERE dispositivoId = d.dispositivoId
-        )
+            INNER JOIN (
+                SELECT dispositivoId, MAX(medicionId) AS max_medicionId
+                FROM Mediciones
+                GROUP BY dispositivoId
+            ) max_m ON Mediciones.dispositivoId = max_m.dispositivoId AND Mediciones.medicionId = max_m.max_medicionId
+        ) m ON d.dispositivoId = m.dispositivoId
     `;
-    // const query = `
-    // SELECT
-    //     d.dispositivoId,
-    //     MAX(m.fecha) AS fecha,
-    //     MAX(m.valor) AS medicion
-    // FROM
-    //     Dispositivos d
-    // JOIN
-    //     Mediciones m ON d.dispositivoId = m.dispositivoId
-    // GROUP BY
-    //     d.dispositivoId;
-
-    // `;
-    // const query = `
-    // SELECT m1.*
-    // FROM Mediciones m1
-    // JOIN (
-    //     SELECT dispositivoId, MAX(fecha) AS max_fecha
-    //     FROM Mediciones
-    //     GROUP BY dispositivoId
-    // ) m2 ON m1.dispositivoId = m2.dispositivoId AND m1.fecha = m2.max_fecha;
-    // `;
-
 
     pool.query(query, function (err, result, fields) {
         if (err) {
