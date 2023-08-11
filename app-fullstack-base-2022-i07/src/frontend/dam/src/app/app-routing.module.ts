@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'dispositivos',
-    loadChildren: () => import('./dispositivos/dispositivos.module').then( m => m.DispositivosPageModule)
-  },
-  {
     path: 'dispositivo',
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   }

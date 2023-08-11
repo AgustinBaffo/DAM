@@ -22,7 +22,6 @@ export class DispositivoPage implements OnInit {
     await this._dispositivoService.getMedicionesByDispositivoId(this.dispositivoId)
       .then((mediciones) => {
         for (let med of mediciones) {
-          console.log(med)
           this.dispositivoMediciones.push(med)
         }
       })
@@ -31,4 +30,5 @@ export class DispositivoPage implements OnInit {
       })
     console.log(this.dispositivoMediciones);
   }
+  
 }
