@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DispositivoPageRoutingModule } from './dispositivo-routing.module';
 
 import { DispositivoPage } from './dispositivo.page';
-import { DateFormatPipe } from '../pipes/date-format.pipe';
-import { Med2State } from '../pipes/med2State.pipe'; // TODO: shold be removed
+import { DateFormatPipe } from '../pipes/date-format.pipe'; // @TODO: shold be removed
+import { Med2State } from '../pipes/med2State.pipe'; // @TODO: shold be removed
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +16,9 @@ import { Med2State } from '../pipes/med2State.pipe'; // TODO: shold be removed
     IonicModule,
     DispositivoPageRoutingModule,
   ],
-  declarations: [DispositivoPage, DateFormatPipe, Med2State]
+  declarations: [
+    DispositivoPage, 
+    DateFormatPipe, 
+    Med2State]
 })
 export class DispositivoPageModule {}

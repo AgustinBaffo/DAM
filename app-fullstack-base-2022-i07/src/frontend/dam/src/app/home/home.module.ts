@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { Med2State } from '../pipes/med2State.pipe'; // TODO: shold be removed
+import { Med2State } from '../pipes/med2State.pipe'; // @TODO: shold be removed
+import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';  // @TODO: shold be removed
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +14,9 @@ import { Med2State } from '../pipes/med2State.pipe'; // TODO: shold be removed
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, Med2State]
+  declarations: [HomePage, 
+    Med2State,
+    HoverClickableColorDirective
+  ]
 })
 export class HomePageModule {}
