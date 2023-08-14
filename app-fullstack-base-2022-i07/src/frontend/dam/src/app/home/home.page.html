@@ -16,13 +16,13 @@
     <ion-col class="header-col">Estado</ion-col>
   </ion-row>
   <div *ngIf="devicesAndValues">
-    <ion-row *ngFor="let device of devicesAndValues" routerLink="/dispositivo/{{ device.dispositivoId }}" hover-clickable-color>
+    <ion-row *ngFor="let device of devicesAndValues" routerLink="/devices/{{ device.dispositivoId }}" hover-clickable-color>
       <ion-col>{{ device.dispositivoId }}</ion-col>
       <ion-col>{{ device.nombre }}</ion-col>
       <ion-col>{{ device.ubicacion }}</ion-col>
       <ion-col>
-        <span [ngStyle]="stateBackgroundColor(device.valor)" class="medicion-state">
-          {{ device.valor | med2State }}
+        <span [ngStyle]="stateBackgroundColor(device.valor)" class="medi-state">
+          <!-- {{ device.valor | med2State }} -->
         </span>
       </ion-col>
     </ion-row>

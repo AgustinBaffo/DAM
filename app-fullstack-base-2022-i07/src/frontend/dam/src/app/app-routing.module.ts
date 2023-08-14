@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'dispositivo',
-    loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
+    path: 'devices',
+    loadChildren: () => import('./devices/devices.module').then( m => m.DevicesPageModule)
   }
 ];
 

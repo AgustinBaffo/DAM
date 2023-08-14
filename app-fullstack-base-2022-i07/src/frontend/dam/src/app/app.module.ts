@@ -10,17 +10,25 @@ import { HttpClientModule } from '@angular/common/http';
 
 // import { HoverClickableColorDirective } from './directives/hover-clickable-color.directive';
 // import { DateFormatPipe } from '../pipes/date-format.pipe';
-import { Med2State } from './pipes/med2State.pipe';
+// import { Med2State } from './pipes/med2State.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
     // HoverClickableColorDirective,
     // DateFormatPipe,
-    Med2State, 
+    // Med2State, 
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers: [{
+    provide: RouteReuseStrategy,
+    useClass: IonicRouteStrategy
+  }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

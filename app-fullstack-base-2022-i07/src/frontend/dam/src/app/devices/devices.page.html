@@ -1,0 +1,19 @@
+<ion-header [translucent]="true" class="custom-header">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Dispositivo {{ dispositivoId }}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<div class="container">
+		<!-- <div class="centered">
+			<app-device-sensor-details-chart [sensorDetails]="sensorDetails"></app-device-sensor-details-chart>
+		</div> -->
+		<div class="centered">
+			<app-device-measurement-table [sensorData]="sensorData"></app-device-measurement-table>
+		</div>
+	</div>
+</ion-content>
