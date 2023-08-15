@@ -8,11 +8,11 @@
 	<div *ngIf="sensorData">
 		<ion-row *ngFor="let data of sensorData">
 			<ion-col>{{ data.medicionId }}</ion-col>
-			<!-- <ion-col>{{ data.fecha | dateFormat }}</ion-col> -->
+			<ion-col>{{ data.fecha | dateFormat }}</ion-col>
 			<ion-col>{{ data.valor }}</ion-col>
 			<ion-col>
 				<span [ngStyle]="stateBackgroundColor(data.valor)" class="medi-state">
-					<!-- {{ data.valor | med2State }} -->
+					{{ data.valor | med2State }}
 				</span>
 			</ion-col>
 		</ion-row>
