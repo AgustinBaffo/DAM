@@ -9,6 +9,8 @@ import { DevicesPageRoutingModule } from './devices-routing.module';
 import { DevicesPage } from './devices.page';
 
 import { DeviceMeasurementTableComponent } from './device-measurement-table/device-measurement-table.component';
+import { DeviceSensorDetailsChartComponent } from './device-sensor-details-chart/device-sensor-details-chart.component';
+import { DevicesSummaryTableComponent } from './devices-summary-table/devices-summary-table.component';
 
 import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';
 import { DateFormatPipe } from '../pipes/date-format.pipe';
@@ -24,9 +26,11 @@ import { Med2State } from '../pipes/med2State.pipe';
 	declarations: [
 		DevicesPage,
 		DeviceMeasurementTableComponent,
+		DeviceSensorDetailsChartComponent,
+		// DevicesSummaryTableComponent,
 		HoverClickableColorDirective,
 		DateFormatPipe,
-		Med2State, 
+		Med2State,
 	]
 })
 export class DevicesPageModule { }
