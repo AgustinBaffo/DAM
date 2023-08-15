@@ -34,8 +34,11 @@ export class DeviceSensorDetailsChartComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	ionViewDidEnter() {
-	  this.generarChart();
+	// ionViewDidEnter() {
+	//   this.generarChart();
+	// }
+	ngAfterViewInit() {
+		this.generarChart();
 	}
 
 	generarChart() {
@@ -109,4 +112,4 @@ export class DeviceSensorDetailsChartComponent implements OnInit {
 	  this.myChart = Highcharts.chart('highcharts', this.chartOptions );
 	}
 
-}
+}	
