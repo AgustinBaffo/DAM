@@ -1,0 +1,20 @@
+<ion-grid>
+  <ion-row class="header-row">
+    <ion-col class="header-col">Id</ion-col>
+    <ion-col class="header-col">Nombre</ion-col>
+    <ion-col class="header-col">Ubicacion</ion-col>
+    <ion-col class="header-col">Estado</ion-col>
+  </ion-row>
+  <div *ngIf="devicesAndValues">
+    <ion-row *ngFor="let device of devicesAndValues" routerLink="/devices/{{ device.dispositivoId }}" hover-clickable-color>
+      <ion-col>{{ device.dispositivoId }}</ion-col>
+      <ion-col>{{ device.nombre }}</ion-col>
+      <ion-col>{{ device.ubicacion }}</ion-col>
+      <ion-col>
+        <span [ngStyle]="stateBackgroundColor(device.valor)" class="medi-state">
+          <!-- {{ device.valor | med2State }} -->
+        </span>
+      </ion-col>
+    </ion-row>
+  </div>
+  </ion-grid>
