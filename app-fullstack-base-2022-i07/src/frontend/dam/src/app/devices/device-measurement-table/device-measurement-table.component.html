@@ -11,7 +11,7 @@
 		<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
 		<ion-col class="centered-cell">{{ data.valor }}</ion-col>
 		<ion-col class="centered-cell">
-		  <span [ngStyle]="stateBackgroundColor(data.valor)" class="medi-state">
+		  <span [ngStyle]="stateBackgroundColor(data.valor)" class="med-state">
 			{{ data.valor | med2State }}
 		  </span>
 		</ion-col>
