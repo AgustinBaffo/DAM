@@ -10,7 +10,7 @@
 <ion-content [fullscreen]="true">
 	<div class="container">
 		<div class="centered">
-			<app-device-sensor-details-chart></app-device-sensor-details-chart>
+			<app-device-sensor-details-chart [sensorValue]="sensorValue"></app-device-sensor-details-chart>
 		</div>
 		<div class="centered">
 			<app-device-measurement-table [sensorData]="sensorData"></app-device-measurement-table>

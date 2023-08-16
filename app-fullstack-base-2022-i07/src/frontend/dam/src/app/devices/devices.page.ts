@@ -15,6 +15,7 @@ export class DevicesPage implements OnInit {
 
   dispositivoId: number = 0;
   sensorData: any[] = [];
+  sensorValue: number = 20; // @todo: change to 0
 
   constructor(private _dispositivoService: DispositivoService, private _actRouter: ActivatedRoute) { }
 
@@ -29,6 +30,5 @@ export class DevicesPage implements OnInit {
       .catch((error) => {
         console.log(error)
       })
-    console.log(this.sensorData);
   }
 }

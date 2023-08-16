@@ -1,21 +1,20 @@
 <ion-grid>
 	<ion-row class="header-row">
-	  <ion-col class="header-col centered-cell">ID</ion-col>
-	  <ion-col class="header-col centered-cell">Fecha</ion-col>
-	  <ion-col class="header-col centered-cell">Valor</ion-col>
-	  <ion-col class="header-col centered-cell">Estado</ion-col>
+		<ion-col class="header-col centered-cell">ID</ion-col>
+		<ion-col class="header-col centered-cell">Fecha</ion-col>
+		<ion-col class="header-col centered-cell">Valor</ion-col>
+		<ion-col class="header-col centered-cell">Estado</ion-col>
 	</ion-row>
 	<div *ngIf="sensorData">
-	  <ion-row *ngFor="let data of sensorData">
-		<ion-col class="centered-cell">{{ data.medicionId }}</ion-col>
-		<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
-		<ion-col class="centered-cell">{{ data.valor }}</ion-col>
-		<ion-col class="centered-cell">
-		  <span [ngStyle]="stateBackgroundColor(data.valor)" class="med-state">
-			{{ data.valor | med2State }}
-		  </span>
-		</ion-col>
-	  </ion-row>
+		<ion-row *ngFor="let data of sensorData">
+			<ion-col class="centered-cell">{{ data.medicionId }}</ion-col>
+			<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
+			<ion-col class="centered-cell">{{ data.valor }}</ion-col>
+			<ion-col class="centered-cell">
+				<span [ngStyle]="stateBackgroundColor(data.valor)" class="med-state">
+					{{ data.valor | med2State }}
+				</span>
+			</ion-col>
+		</ion-row>
 	</div>
-  </ion-grid>
-  
+</ion-grid>

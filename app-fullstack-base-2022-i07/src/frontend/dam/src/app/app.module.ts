@@ -8,26 +8,25 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import {HomePageModule} from './home/home.module';
-import {DevicesPageModule} from './devices/devices.module';
-
+import { HomePageModule } from './home/home.module';
+import { DevicesPageModule } from './devices/devices.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-    HomePageModule,
-    DevicesPageModule
-  ],
-  providers: [{
-    provide: RouteReuseStrategy,
-    useClass: IonicRouteStrategy
-  }],
-  bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+	],
+	imports: [
+		BrowserModule,
+		IonicModule.forRoot(),
+		AppRoutingModule,
+		HttpClientModule,
+		HomePageModule,
+		DevicesPageModule
+	],
+	providers: [{
+		provide: RouteReuseStrategy,
+		useClass: IonicRouteStrategy
+	}],
+	bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -10,11 +10,11 @@ import { DevicesPage } from './devices.page';
 
 import { DeviceMeasurementTableComponent } from './device-measurement-table/device-measurement-table.component';
 import { DeviceSensorDetailsChartComponent } from './device-sensor-details-chart/device-sensor-details-chart.component';
-// import { DevicesSummaryTableComponent } from './devices-summary-table/devices-summary-table.component';  // @todo: review
+import { DevicesSummaryTableComponent } from './devices-summary-table/devices-summary-table.component';
 
-// import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';  // @todo: review
 import { DateFormatPipe } from '../pipes/date-format.pipe';
 import { Med2State } from '../pipes/med2State.pipe';
+import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';
 
 @NgModule({
 	imports: [
@@ -27,10 +27,13 @@ import { Med2State } from '../pipes/med2State.pipe';
 		DevicesPage,
 		DeviceMeasurementTableComponent,
 		DeviceSensorDetailsChartComponent,
-		// DevicesSummaryTableComponent,
-		// HoverClickableColorDirective,
+		DevicesSummaryTableComponent,
 		DateFormatPipe,
 		Med2State,
+		HoverClickableColorDirective,
+	],
+	exports: [
+		DevicesSummaryTableComponent,
 	]
 })
 export class DevicesPageModule { }
