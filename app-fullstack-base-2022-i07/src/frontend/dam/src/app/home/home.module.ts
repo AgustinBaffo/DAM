@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
-import { DevicesSummaryTableComponent } from '../devices/devices-summary-table/devices-summary-table.component';
+import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';   // @todo: review
+import { DevicesSummaryTableComponent } from '../devices/devices-summary-table/devices-summary-table.component';   // @todo: review
 
 @NgModule({
 	imports: [
@@ -17,7 +17,8 @@ import { DevicesSummaryTableComponent } from '../devices/devices-summary-table/d
 	],
 	declarations: [
 		HomePage,
-		DevicesSummaryTableComponent
+		DevicesSummaryTableComponent,
+		HoverClickableColorDirective
 	]
 })
 export class HomePageModule { }
