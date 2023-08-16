@@ -1,21 +1,19 @@
 <ion-grid>
-  <ion-row class="header-row">
-    <ion-col class="header-col centered-cell">Id</ion-col>
-    <ion-col class="header-col centered-cell">Nombre</ion-col>
-    <ion-col class="header-col centered-cell">Ubicacion</ion-col>
-    <ion-col class="header-col centered-cell">Estado</ion-col>
-  </ion-row>
-  <div *ngIf="devicesAndValues">
-    <ion-row *ngFor="let device of devicesAndValues" routerLink="/devices/{{ device.dispositivoId }}" hover-clickable-color>
-      <ion-col class="centered-cell">{{ device.dispositivoId }}</ion-col>
-      <ion-col class="centered-cell">{{ device.nombre }}</ion-col>
-      <ion-col class="centered-cell">{{ device.ubicacion }}</ion-col>
-      <ion-col class="centered-cell">
-        <span [ngStyle]="stateBackgroundColor(device.valor)" class="med-state">
-          <!-- {{ device.valor | med2State }} -->
-          {{device.valor}}
-        </span>
-      </ion-col>
-    </ion-row>
-  </div>
-  </ion-grid>
+	<ion-row class="header-row">
+		<ion-col class="header-col centered-cell">Id</ion-col>
+		<ion-col class="header-col centered-cell">Nombre</ion-col>
+		<ion-col class="header-col centered-cell">Ubicacion</ion-col>
+		<ion-col class="header-col centered-cell">Estado</ion-col>
+	</ion-row>
+	<div *ngIf="devicesAndValues">
+		<ion-row *ngFor="let device of devicesAndValues" routerLink="/devices/{{ device.dispositivoId }}"
+			hover-clickable-color>
+			<ion-col class="centered-cell">{{ device.dispositivoId }}</ion-col>
+			<ion-col class="centered-cell">{{ device.nombre }}</ion-col>
+			<ion-col class="centered-cell">{{ device.ubicacion }}</ion-col>
+			<ion-col class="centered-cell">
+				<app-display-status-box [sensorValue]="device.valor"></app-display-status-box>
+			</ion-col>
+		</ion-row>
+	</div>
+</ion-grid>
