@@ -1,6 +1,13 @@
 // Before run: npm install --save highcharts
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+import { timeout } from 'rxjs/operators';
+
+import { DispositivoService } from '../../services/dispositivo.service'
+
 import * as Highcharts from 'highcharts';
+
+
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
@@ -10,36 +17,71 @@ require('highcharts/modules/solid-gauge')(Highcharts);
 	templateUrl: './device-sensor-details-chart.component.html',
 	styleUrls: ['./device-sensor-details-chart.component.scss'],
 })
-export class DeviceSensorDetailsChartComponent implements OnInit {
+export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 
-	@Input() sensorValue: number = 0;
+	@Input() deviceID: number = -1;
+	
+	private sensorValue: number = -1;
 	public myChart: any = 0;
 	private chartOptions: any = 0;
+	private timerUpdateCurrentValue: any = 0;
 
-	constructor() {
-		setTimeout(() => {			
-			this.myChart.update({
-				series: [{
-					name: 'Cb',
-					data: [this.sensorValue],
-					tooltip: {
-						valueSuffix: ' Cb'
-					}
-				}]
-			});
-		}, 6000);
+	constructor(private _dispositivoService: DispositivoService, private _actRouter: ActivatedRoute) { }
 
+	async ngOnInit() {
+
+		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceID)
+			.then((ret) => {
+				this.sensorValue = Number(ret.currentValue);
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+
+		this.createChart();
 	}
 
-	ngOnInit() {}
+	ngOnDestroy() {
+		clearInterval(this.timerUpdateCurrentValue);
+	}
 
-	ngAfterViewInit() {
+	createChart() {
 		this.generarChart();
+		this.startTimerUpdateCurrentValue();
+	}
+
+	startTimerUpdateCurrentValue() {
+		this.timerUpdateCurrentValue = setInterval(this.updateChart.bind(this), 5000); // @todo: change to 10000
+	}
+
+	async updateChart() {
+
+		// @todo: que pasa si la respuesta nunca llega?
+		// a) deadlock?
+		// b) se vuelve a ejecutar timerUpdateCurrentValue->updateChart() y se stackean muchas consultas sin respuestas
+		// usar timeout
+		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceID)
+			.then((ret) => {
+				this.sensorValue = Number(ret.currentValue);
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+
+		console.log('Update chart: ' + this.sensorValue);
+		this.myChart.update({
+			series: [{
+				name: 'Humedad',
+				data: [this.sensorValue],
+				tooltip: {
+					valueSuffix: ' Cb'
+				}
+			}]
+		});
 	}
 
 	generarChart() {
 		this.chartOptions = {
-			
 			chart: {
 				type: 'gauge',
 				plotBackgroundColor: null,
@@ -48,7 +90,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit {
 				plotShadow: false
 			}
 			, title: {
-				text: 'Sensor de humedad'
+				text: 'Sensor de humedad ' + this.deviceID
 			}
 			, credits: { enabled: false }
 			, pane: {
@@ -76,7 +118,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit {
 					rotation: 'auto'
 				},
 				title: {
-					text: 'Cb'
+					text: 'Centibares [Cb]'
 				},
 				plotBands: [{
 					from: 0,
@@ -95,7 +137,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit {
 			,
 
 			series: [{
-				name: 'Cb',
+				name: 'Humedad',
 				data: [this.sensorValue],
 				tooltip: {
 					valueSuffix: ' Cb'
@@ -103,6 +145,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit {
 			}]
 
 		};
+
 		this.myChart = Highcharts.chart('highcharts', this.chartOptions);
 	}
 

@@ -20,4 +20,8 @@ export class DispositivoService {
   getMedicionesByDispositivoId(id: number): Promise<any> {
     return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/mediciones`));
   }
+
+  getDeviceCurrentValueByID(id: number): Promise<any> {
+    return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/currentValue`));
+  }
 }
