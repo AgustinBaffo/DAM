@@ -1,0 +1,20 @@
+<div class="container">
+
+	<div class="centered">
+		<img [src]="getElectrovalveImageSource()" alt="electrovalve-image" style="width: 15%; height: auto;">
+	</div>
+
+	<div class="centered">
+		<ion-label class="custom-label ion-margin-top" [class.abierta]="electrovalveOpen"
+			[class.cerrada]="!electrovalveOpen">
+			{{ electrovalveOpen ? 'Abierta' : 'Cerrada' }}
+		</ion-label>
+	</div>
+
+	<div class="centered">
+		<ion-button (click)="toggleElectrovalve()" class="ion-margin-top">
+			{{ electrovalveOpen ? 'Cerrar electrovalvula' : 'Abrir electrovalvula' }}
+		</ion-button>
+	</div>
+	
+</div>

@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DevicesPageRoutingModule } from './devices-routing.module';
-
 import { DevicesPage } from './devices.page';
+
+import { DevicesPageRoutingModule } from './devices-routing.module';
+import { ElectrovalvesPageModule } from '../electrovalves/electrovalves.module';
+
 
 import { DeviceMeasurementTableComponent } from './device-measurement-table/device-measurement-table.component';
 import { DeviceSensorDetailsChartComponent } from './device-sensor-details-chart/device-sensor-details-chart.component';
@@ -23,6 +25,7 @@ import { HoverClickableColorDirective } from '../directives/hover-clickable-colo
 		FormsModule,
 		IonicModule,
 		DevicesPageRoutingModule,
+		ElectrovalvesPageModule,
 	],
 	declarations: [
 		DevicesPage,

@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'devices',
     loadChildren: () => import('./devices/devices.module').then( m => m.DevicesPageModule)
+  },
+  {
+    path: 'electrovalves',
+    loadChildren: () => import('./electrovalves/electrovalves.module').then( m => m.ElectrovalvesPageModule)
   }
 ];
 
