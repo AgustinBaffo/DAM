@@ -28,4 +28,18 @@ export class DispositivoService {
   getElectrovalveByDeviceId(id: number): Promise<any> {
     return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/electrovalveId`));
   }
+
+  getDevicesIdList(): Promise<any> {
+    return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/devicesId`));
+  }
+
+  setMeasurementById(deviceId: number, val: number, date: Date): Promise<any> {
+		const data = {
+			deviceId: deviceId,
+			val: val,
+			date: date.toISOString(),
+		};
+		return firstValueFrom(this._http.post(`http://localhost:8000/dispositivo/mediciones`, data));
+	}
+
 }

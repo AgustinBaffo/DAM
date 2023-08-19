@@ -67,4 +67,43 @@ routerDispositivo.get('/:id/electrovalveId', function (req, res) {
     });
 });
 
+routerDispositivo.get('/devicesId', function (req, res) {
+    pool.query('SELECT DISTINCT dispositivoId FROM Dispositivos', function (err, result, fields) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+
+        const deviceIds = result.map(row => row.dispositivoId);
+        res.status(200).send(deviceIds);
+    });
+});
+
+
+routerDispositivo.post('/mediciones', (req, res) => {
+    
+    const { deviceId, val, date } = req.body;
+    const formattedDate = new Date(date).toISOString().slice(0, 19).replace('T', ' ');
+
+    const newMed = {
+        valor: val,
+        fecha: formattedDate,
+        dispositivoId: deviceId
+    };
+
+    pool.query('INSERT INTO Mediciones SET ?', newMed, (err, result) => {
+        if (err) {
+            const msg = "Error while inserting new measurement register";
+            console.error(msg, err);
+            res.status(500).json({ error: msg });
+            return;
+        }
+        const msg = "Measurement register inserted successfully";
+        console.log(msg);
+        res.status(200).json({ msg });
+    });
+});
+
+
+
 module.exports = routerDispositivo
