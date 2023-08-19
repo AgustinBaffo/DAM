@@ -9,6 +9,7 @@ import { ElectrovalvesPageRoutingModule } from './electrovalves-routing.module';
 import { ElectrovalvesPage } from './electrovalves.page';
 import { ElectrovalveManagerComponent } from './electrovalve-manager/electrovalve-manager.component';
 import { IrrigationLogTableComponent } from './irrigation-log-table/irrigation-log-table.component';
+import { ElectrovalveDisplayStatusBoxComponent } from './electrovalve-display-status-box/electrovalve-display-status-box.component';
 
 @NgModule({
 	imports: [
@@ -21,6 +22,7 @@ import { IrrigationLogTableComponent } from './irrigation-log-table/irrigation-l
 		ElectrovalvesPage,
 		ElectrovalveManagerComponent,
 		IrrigationLogTableComponent,
+		ElectrovalveDisplayStatusBoxComponent,
 	],
 	exports: [
 		ElectrovalveManagerComponent,

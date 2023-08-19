@@ -26,6 +26,24 @@ routerIrrigation.get('/:id', function (req, res) {
     });
 });
 
+routerIrrigation.get('/:id/currentValue', function (req, res) {
+    const electrovalveId = req.params.id;
+    pool.query('SELECT * FROM Log_Riegos WHERE electrovalvulaId = ? ORDER BY fecha DESC LIMIT 1', [electrovalveId], function (err, result, fields) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+
+        if (result.length === 0) {
+            res.status(404).send('No values found for electrovalve: ' + electrovalveId);
+            return;
+        }
+
+        const currentValue = result[0].apertura;
+        res.status(200).json({ currentValue });
+    });
+});
+
 routerIrrigation.post('/register', (req, res) => {
     const { opened, date, electrovalveId } = req.body;
     const formattedDate = new Date(date).toISOString().slice(0, 19).replace('T', ' ');
@@ -45,7 +63,7 @@ routerIrrigation.post('/register', (req, res) => {
         }
         const msg = "Irrigation register inserted successfully";
         console.log(msg);
-        res.status(200).json({msg});
+        res.status(200).json({ msg });
     });
 });
 

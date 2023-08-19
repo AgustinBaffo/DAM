@@ -9,6 +9,18 @@ export class IrrigationService {
 
 	constructor(private _http: HttpClient) { }
 
+	getLogRegisters(): Promise<any> {
+		return firstValueFrom(this._http.get('http://localhost:8000/irrigation'));
+	}
+
+	getLogRegistersById(id: number): Promise<any> {
+		return firstValueFrom(this._http.get(`http://localhost:8000/irrigation/${id}`));
+	}
+
+	getCurrentValueByID(id: number): Promise<any> {
+		return firstValueFrom(this._http.get(`http://localhost:8000/irrigation/${id}/currentValue`));
+	}
+
 	setIrrigationRegister(electrovalveId: number, opened: number, date: Date): Promise<any> {
 		const data = {
 			electrovalveId: electrovalveId,
@@ -17,4 +29,7 @@ export class IrrigationService {
 		};
 		return firstValueFrom(this._http.post('http://localhost:8000/irrigation/register', data));
 	}
+
+
+
 }

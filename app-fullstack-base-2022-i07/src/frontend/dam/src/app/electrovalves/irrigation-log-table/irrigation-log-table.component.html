@@ -1,3 +1,16 @@
-<p>
-  irrigation-log-table works!
-</p>
+<ion-grid>
+	<ion-row class="header-row">
+		<ion-col class="header-col centered-cell">ID</ion-col>
+		<ion-col class="header-col centered-cell">Fecha</ion-col>
+		<ion-col class="header-col centered-cell">Estado</ion-col>
+	</ion-row>
+	<div *ngIf="logRegistersData">
+		<ion-row *ngFor="let data of logRegistersData">
+			<ion-col class="centered-cell">{{ data.logRiegoId }}</ion-col>
+			<ion-col class="centered-cell">{{ data.fecha }}</ion-col>
+			<ion-col class="centered-cell">
+				<app-electrovalve-display-status-box [opened]="data.apertura"></app-electrovalve-display-status-box>
+			</ion-col>
+		</ion-row>
+	</div>
+</ion-grid>

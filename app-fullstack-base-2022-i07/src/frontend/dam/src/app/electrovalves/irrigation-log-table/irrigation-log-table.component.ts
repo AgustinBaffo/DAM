@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IrrigationService } from 'src/app/services/irrigation.service';
 
 @Component({
   selector: 'app-irrigation-log-table',
@@ -6,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./irrigation-log-table.component.scss'],
 })
 export class IrrigationLogTableComponent  implements OnInit {
+  
+  @Input() electrovalveId: number = 0;
+	public logRegistersData: any[] = [];
 
-  constructor() { }
+	constructor(private _irrigationService: IrrigationService) { }
 
-  ngOnInit() {}
+	async ngOnInit() {
+		await this._irrigationService.getLogRegistersById(this.electrovalveId)
+			.then((registers) => {
+				for (let reg of registers) {
+					this.logRegistersData.push(reg)
+				}
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+	}
 
 }

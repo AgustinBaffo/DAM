@@ -10,10 +10,8 @@
 	</div>
 
 	<div class="centered">
-		<ion-label class="custom-label ion-margin-top" [class.abierta]="electrovalveOpen"
-			[class.cerrada]="!electrovalveOpen">
-			{{ electrovalveOpen ? 'Abierta' : 'Cerrada' }}
-		</ion-label>
+
+		<app-electrovalve-display-status-box [opened]="electrovalveOpen ? 1 : 0"></app-electrovalve-display-status-box>
 	</div>
 
 	<div class="centered">

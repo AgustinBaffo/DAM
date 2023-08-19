@@ -16,7 +16,7 @@
 			<app-electrovalve-manager [electrovalveId]="dispositivoId"></app-electrovalve-manager>
 		</div>
 		<div class="centered">
-			<app-irrigation-log-table></app-irrigation-log-table>
+			<app-irrigation-log-table [electrovalveId]="dispositivoId"></app-irrigation-log-table>
 		</div>
 		<div class="centered">
 			<app-device-measurement-table [sensorData]="sensorData"></app-device-measurement-table>
