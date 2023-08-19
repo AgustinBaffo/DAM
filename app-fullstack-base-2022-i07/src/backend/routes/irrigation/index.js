@@ -16,7 +16,6 @@ routerIrrigation.get('/', function (req, res) {
 
 routerIrrigation.get('/:id', function (req, res) {
     const electrovalveId = req.params.id;
-    console.log("irrigation con id:"+electrovalveId);
 
     pool.query('SELECT * FROM Log_Riegos WHERE electrovalvulaId = ?', [electrovalveId], function (err, result, fields) {
         if (err) {
