@@ -7,7 +7,7 @@
 	<div *ngIf="logRegistersData">
 		<ion-row *ngFor="let data of logRegistersData">
 			<ion-col class="centered-cell">{{ data.logRiegoId }}</ion-col>
-			<ion-col class="centered-cell">{{ data.fecha }}</ion-col>
+			<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
 			<ion-col class="centered-cell">
 				<app-electrovalve-display-status-box [opened]="data.apertura"></app-electrovalve-display-status-box>
 			</ion-col>
