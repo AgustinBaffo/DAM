@@ -1,7 +1,12 @@
 <div class="container">
 
 	<div class="centered">
-		<img [src]="getElectrovalveImageSource()" alt="electrovalve-image" style="width: 15%; height: auto;">
+		<div class="centered centered-img">
+			<img [src]="getElectrovalveImageSource()" alt="electrovalve-image" style="width: 15%; height: auto;">
+		</div>
+		<div class="centered centered-img" *ngIf="electrovalveOpen">
+			<img [src]="getElectrovalveDropImageSource()" alt="electrovalve-drops" style="width: 15%; height: auto;">
+		</div>
 	</div>
 
 	<div class="centered">
@@ -16,5 +21,5 @@
 			{{ electrovalveOpen ? 'Cerrar electrovalvula' : 'Abrir electrovalvula' }}
 		</ion-button>
 	</div>
-	
+
 </div>

@@ -15,9 +15,10 @@ export class ElectrovalveManagerComponent implements OnInit {
 	ngOnInit() { }
 
 	getElectrovalveImageSource(): string {
-		const basePath = './assets/electrovalve/';
-		const imageName = this.electrovalveOpen ? 'electrovalve_opened.jpg' : 'electrovalve_closed.jpg';
-		return basePath + imageName;
+		return './assets/electrovalve/electrovalve.jpg';
+	}
+	getElectrovalveDropImageSource(): string{
+		return './assets/electrovalve/drop.gif';
 	}
 	
 	toggleElectrovalve() {

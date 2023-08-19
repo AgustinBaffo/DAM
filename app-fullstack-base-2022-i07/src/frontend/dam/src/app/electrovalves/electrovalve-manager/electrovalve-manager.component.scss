@@ -4,13 +4,17 @@
     justify-content: center;
 }
 
-
 .centered {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px; /* Espaciado entre divs */
+    margin-bottom: 20px;
+}
+
+.centered-img{
+    margin: 0;
+    padding: 0;
 }
 
 
