@@ -8,4 +8,8 @@
 
 <ion-content [fullscreen]="true">
     <app-devices-summary-table [devicesAndValues]="devicesAndValues"></app-devices-summary-table>
+    <ion-item>
+        <ion-label class="ion-text-end">Simular mediciones</ion-label>
+        <ion-toggle class="ion-text-end" [(ngModel)]="simulation" (ionChange)="toggleSimulation()"></ion-toggle>
+      </ion-item>
 </ion-content>

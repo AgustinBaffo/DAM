@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DispositivoService } from '../services/dispositivo.service';
+import { MeasurementsSimulatorService } from '../services/measurements-simulator.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,10 @@ import { DispositivoService } from '../services/dispositivo.service';
 })
 export class HomePage {
 
-  devicesAndValues: any[] = [];  
+  public devicesAndValues: any[] = [];  
+  public simulation: boolean = false;
   
-  constructor(private dispositivoService: DispositivoService) {}
+  constructor(private dispositivoService: DispositivoService, private simService: MeasurementsSimulatorService) {}
 
   async ngOnInit() {
     await this.dispositivoService.getListadoDispositivosConEstados()
@@ -21,5 +23,13 @@ export class HomePage {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  toggleSimulation() {
+    if (this.simulation) {
+      this.simService.start();
+    } else {
+      this.simService.stop();
+    }
   }
 }
