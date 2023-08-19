@@ -10,11 +10,35 @@ import { DispositivoService } from 'src/app/services/dispositivo.service';
 export class DevicesSummaryTableComponent implements OnInit {
 
 	public devicesAndValues: any[] = [];
+	private timerUpdateCurrentValue: any = 0;
 
-	constructor(private dispositivoService: DispositivoService) { }
+	constructor(private _dispositivoService: DispositivoService) { }
 
 	async ngOnInit() {
-		await this.dispositivoService.getListadoDispositivosConEstados()
+		await this._dispositivoService.getListadoDispositivosConEstados()
+			.then((dispositivos) => {
+				console.log(dispositivos)
+				this.devicesAndValues = dispositivos;
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+
+
+		this.startTimerUpdateCurrentValue();
+	}
+
+	startTimerUpdateCurrentValue() {
+		this.timerUpdateCurrentValue = setInterval(this.updateTable.bind(this), 5000);
+	}
+
+	async updateTable() {
+
+		// @todo: que pasa si la respuesta nunca llega?
+		// a) deadlock?
+		// b) se vuelve a ejecutar timerUpdateCurrentValue->updateChart() y se stackean muchas consultas sin respuestas
+		// usar timeout
+		await this._dispositivoService.getListadoDispositivosConEstados()
 			.then((dispositivos) => {
 				console.log(dispositivos)
 				this.devicesAndValues = dispositivos;
@@ -23,5 +47,6 @@ export class DevicesSummaryTableComponent implements OnInit {
 				console.log(error);
 			});
 	}
+
 
 }

@@ -14,8 +14,8 @@ export class MeasurementsSimulatorService {
 
 	// Simulation parameters
 	private iterationTime: number = 5000	// ms - Control the speed of the simulation (time between each measurement)
-	private mean = 0.15;					// Mean of the increment applied in each iteration
-	private standardDeviation = 0.05;		// Standar deviation of the increment applied in each iteration
+	private mean = .5;						// Mean of the increment applied in each iteration
+	private standardDeviation = .2;			// Standar deviation of the increment applied in each iteration
 	private maxValue = 60;
 	private minValue = 0;
 
