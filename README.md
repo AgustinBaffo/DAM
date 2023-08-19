@@ -10,6 +10,10 @@ En esta extensión del proyecto se utiliza el framework Ionic (y Angular) para r
     <img src="./outputs/dam.gif" alt="sides_image" class="center" width="80%"/>
 </p>
 
+## Update - Simulación ⭐⭐⭐
+
+La última versión cuenta con un servicio de simulación de mediciones que se puede activar desde la pantalla de inicio. Al activarlo, se establecen valores aleatorios para las electroválvulas y las mediciones de los sensores. Las mediciones irán cambiando en función de una distribución normal, la cual es configurable en el servicio de simulación. Si la electroválvula está abierta, el suelo se volverá cada vez más húmedo hasta que alcance su saturación. Si se cierra la válvula, el suelo se irá secando hasta alcanzar el extremo opuesto.
+
 ## Como ejecutar 💻
 
 Clonar este repositorio.
