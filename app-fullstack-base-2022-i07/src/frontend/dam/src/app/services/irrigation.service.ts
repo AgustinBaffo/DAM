@@ -30,6 +30,4 @@ export class IrrigationService {
 		return firstValueFrom(this._http.post('http://localhost:8000/irrigation/register', data));
 	}
 
-
-
 }
