@@ -19,8 +19,8 @@ require('highcharts/modules/solid-gauge')(Highcharts);
 })
 export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 
-	@Input() deviceID: number = -1;
-	
+	@Input() deviceId: number = -1;
+
 	private sensorValue: number = -1;
 	public myChart: any = 0;
 	private chartOptions: any = 0;
@@ -30,7 +30,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 
 	async ngOnInit() {
 
-		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceID)
+		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceId)
 			.then((ret) => {
 				this.sensorValue = Number(ret.currentValue);
 			})
@@ -60,7 +60,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 		// a) deadlock?
 		// b) se vuelve a ejecutar timerUpdateCurrentValue->updateChart() y se stackean muchas consultas sin respuestas
 		// usar timeout
-		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceID)
+		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceId)
 			.then((ret) => {
 				this.sensorValue = Number(ret.currentValue);
 			})
@@ -90,7 +90,10 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 				plotShadow: false
 			}
 			, title: {
-				text: 'Sensor de humedad ' + this.deviceID
+				text: 'Sensor de humedad ' + this.deviceId,
+				style: {
+					display: 'none'
+				}
 			}
 			, credits: { enabled: false }
 			, pane: {

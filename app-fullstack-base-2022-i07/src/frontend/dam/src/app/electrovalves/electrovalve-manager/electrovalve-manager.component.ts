@@ -9,7 +9,7 @@ import { IrrigationService } from 'src/app/services/irrigation.service';
 export class ElectrovalveManagerComponent implements OnInit {
 
 	@Input() electrovalveId: number = 0;
-	electrovalveOpen: boolean = false; // @todo get real value
+	public electrovalveOpen: number = 2; // Undefined
 	constructor(private _irrigationService: IrrigationService) { }
 
 	ngOnInit() { }
@@ -23,7 +23,8 @@ export class ElectrovalveManagerComponent implements OnInit {
 	
 	toggleElectrovalve() {
 
-		const newStateOpened = !this.electrovalveOpen;
+		// @todo: check valid state
+		const newStateOpened = this.electrovalveOpen===1 ? 0 : 1 ;
 
 		// @todo send command to real electrovalve (using async/await)
 		const ret = this.sendCommandToElectrovalve(newStateOpened);
@@ -31,14 +32,14 @@ export class ElectrovalveManagerComponent implements OnInit {
 		if (ret) {
 			this.electrovalveOpen = newStateOpened;
 			const date = new Date();
-			this.sendIrrigationLogRegister(this.electrovalveOpen ? 1 : 0, date);
+			this.sendIrrigationLogRegister(this.electrovalveOpen, date);
 		} else {
 			console.error('Error while openning electrovalve ' + this.electrovalveId);
 		}
 
 	}
 
-	sendCommandToElectrovalve(opened: boolean) {
+	sendCommandToElectrovalve(opened: number) {
 		// @todo: send command to real electrovalve
 		return true;
 	}

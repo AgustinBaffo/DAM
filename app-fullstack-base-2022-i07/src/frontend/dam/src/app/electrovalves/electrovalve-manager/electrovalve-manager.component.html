@@ -1,22 +1,30 @@
 <div class="container">
-
+	<h3 style="text-align: center; margin-top: 0;">Electrovalvula {{electrovalveId}}</h3>
 	<div class="centered">
 		<div class="centered centered-img">
-			<img [src]="getElectrovalveImageSource()" alt="electrovalve-image" style="width: 15%; height: auto;">
+			<img [src]="getElectrovalveImageSource()" alt="electrovalve-image" style="width: 40%; height: auto;">
 		</div>
-		<div class="centered centered-img" *ngIf="electrovalveOpen">
-			<img [src]="getElectrovalveDropImageSource()" alt="electrovalve-drops" style="width: 15%; height: auto;">
-		</div>
+
+		<ng-container *ngIf="electrovalveOpen===1; else elseBlock">
+			<div class="centered centered-img" style="height: 100px;">
+				<img [src]="getElectrovalveDropImageSource()" alt="electrovalve-drops"
+					style="width: auto; height: 100px;">
+			</div>
+		</ng-container>
+		<ng-template #elseBlock>
+			<div class="centered centered-img" style="height: 100px;">
+				<app-electrovalve-display-status-box
+					[opened]="electrovalveOpen"></app-electrovalve-display-status-box>
+			</div>
+		</ng-template>
+
+
 	</div>
 
 	<div class="centered">
-
-		<app-electrovalve-display-status-box [opened]="electrovalveOpen ? 1 : 0"></app-electrovalve-display-status-box>
-	</div>
-
-	<div class="centered">
-		<ion-button (click)="toggleElectrovalve()" class="ion-margin-top">
-			{{ electrovalveOpen ? 'Cerrar electrovalvula' : 'Abrir electrovalvula' }}
+		<!-- @todo: check valid state -->
+		<ion-button (click)="toggleElectrovalve()" class="ion-margin-top medium-width">
+			{{ electrovalveOpen === 1 ? 'Cerrar electrovalvula' : 'Abrir electrovalvula' }}
 		</ion-button>
 	</div>
 

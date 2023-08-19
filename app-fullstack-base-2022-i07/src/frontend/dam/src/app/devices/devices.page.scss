@@ -5,8 +5,34 @@
 
 .container {
   display: flex;
-   flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+}
+
+.centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.medium-width {
+  width: 350px;
+}
+
+@media (max-width: 767px) {
+  .centered {
+    flex-direction: column;
+  }
 }
 
 ion-button {
@@ -26,6 +52,4 @@ ion-button {
 
   --ripple-color: #3880ff;
 
-  // --padding-top: 10px;
-  // --padding-bottom: 10px;
 }
