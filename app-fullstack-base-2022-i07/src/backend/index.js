@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 var pool = require('./mysql-connector');
 const routerDispositivo = require('./routes/dispositivo')
+const routerIrrigation = require('./routes/irrigation')
 
 var corsOptions = {
     origin: '*',
@@ -35,6 +36,7 @@ app.use(express.static('/home/node/app/static/'));
 app.use(cors(corsOptions));
 
 app.use('/dispositivo', routerDispositivo)
+app.use('/irrigation', routerIrrigation)
 
 //=======[ Main module code ]==================================================
 

@@ -1,9 +1,9 @@
 // Before run: npm install --save highcharts
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { timeout } from 'rxjs/operators';
+// import { timeout } from 'rxjs/operators';
 
-import { DispositivoService } from '../../services/dispositivo.service'
+import { DispositivoService } from 'src/app/services/dispositivo.service'
 
 import * as Highcharts from 'highcharts';
 
