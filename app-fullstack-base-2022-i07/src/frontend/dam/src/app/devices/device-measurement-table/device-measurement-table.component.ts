@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+
+import { DispositivoService } from 'src/app/services/dispositivo.service';
 
 @Component({
 	selector: 'app-device-measurement-table',
@@ -7,9 +10,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DeviceMeasurementTableComponent implements OnInit {
 
-	@Input() sensorData: any[] = [];
+	public dispositivoId: number = 0;
+	public sensorData: any[] = [];
 	
-	constructor() { }
+	constructor(private _dispositivoService: DispositivoService, private _actRouter: ActivatedRoute) { }
 
-	ngOnInit() { }
+	async ngOnInit() {
+		this.dispositivoId = Number(this._actRouter.snapshot.paramMap.get('id'));
+		await this._dispositivoService.getMedicionesByDispositivoId(this.dispositivoId)
+			.then((mediciones) => {
+				for (let med of mediciones) {
+					this.sensorData.push(med)
+				}
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+	}
 }

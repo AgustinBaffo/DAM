@@ -8,3 +8,24 @@
    flex-direction: column;
   justify-content: center;
 }
+
+ion-button {
+  --background: #white;
+  --background-hover: #9ce0be;
+  --background-activated: #88f4be;
+  --background-focused: #88f4be;
+
+  --color: #1f6cf0;
+
+  --border-radius: 10px;
+  --border-color: #3880ff;
+  --border-style: solid;
+  --border-width: 2px;
+
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+  --ripple-color: #3880ff;
+
+  // --padding-top: 10px;
+  // --padding-bottom: 10px;
+}

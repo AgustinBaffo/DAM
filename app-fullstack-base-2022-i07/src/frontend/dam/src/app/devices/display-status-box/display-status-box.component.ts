@@ -14,11 +14,11 @@ export class DisplayStatusBoxComponent implements OnInit {
 
   stateBackgroundColor(valor: number): { [key: string]: string } {
     if (valor >= 0 && valor <= 10) {
-      return { backgroundColor: '#F08000', color: 'white' }; // Orange
+      return { backgroundColor: '#ffa726', color: 'white' }; // Orange
     } else if (valor > 10 && valor <= 30) {
-      return { backgroundColor: 'green', color: 'white' };
+      return { backgroundColor: '#66bb6a', color: 'white' }; // Green
     } else if (valor > 30 && valor <= 60) {
-      return { backgroundColor: '#FF4433', color: 'black' }; // Red
+      return { backgroundColor: '#FF6961', color: 'black' }; // Red
     } else {
       return { backgroundColor: 'gray', color: 'white' };
     }

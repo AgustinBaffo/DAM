@@ -16,10 +16,10 @@
 			<app-electrovalve-manager [electrovalveId]="dispositivoId"></app-electrovalve-manager>
 		</div>
 		<div class="centered">
-			<app-irrigation-log-table [electrovalveId]="dispositivoId"></app-irrigation-log-table>
+			<ion-button routerLink="/devices/{{ dispositivoId }}/measurements">Ver todas las mediciones</ion-button>
 		</div>
 		<div class="centered">
-			<app-device-measurement-table [sensorData]="sensorData"></app-device-measurement-table>
+			<ion-button routerLink="/electrovalves/{{ dispositivoId }}/registers">Registros de riego</ion-button>
 		</div>
 	</div>
 </ion-content>

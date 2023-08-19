@@ -8,6 +8,7 @@ import { DevicesPage } from './devices.page';
 
 import { DevicesPageRoutingModule } from './devices-routing.module';
 import { ElectrovalvesPageModule } from '../electrovalves/electrovalves.module';
+import { DateFormatPipe } from '../pipes/date-format.pipe';
 
 
 import { DeviceMeasurementTableComponent } from './device-measurement-table/device-measurement-table.component';
@@ -15,7 +16,6 @@ import { DeviceSensorDetailsChartComponent } from './device-sensor-details-chart
 import { DevicesSummaryTableComponent } from './devices-summary-table/devices-summary-table.component';
 import { DisplayStatusBoxComponent } from './display-status-box/display-status-box.component';
 
-import { DateFormatPipe } from '../pipes/date-format.pipe';
 import { Med2State } from '../pipes/med2State.pipe';
 import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';
 
@@ -26,13 +26,13 @@ import { HoverClickableColorDirective } from '../directives/hover-clickable-colo
 		IonicModule,
 		DevicesPageRoutingModule,
 		ElectrovalvesPageModule,
+		DateFormatPipe,
 	],
 	declarations: [
 		DevicesPage,
 		DeviceMeasurementTableComponent,
 		DeviceSensorDetailsChartComponent,
 		DevicesSummaryTableComponent,
-		DateFormatPipe,
 		Med2State,
 		HoverClickableColorDirective,
 		DisplayStatusBoxComponent

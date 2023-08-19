@@ -1,18 +1,29 @@
-<ion-grid>
-	<ion-row class="header-row">
-		<ion-col class="header-col centered-cell">ID</ion-col>
-		<ion-col class="header-col centered-cell">Fecha</ion-col>
-		<ion-col class="header-col centered-cell">Valor</ion-col>
-		<ion-col class="header-col centered-cell">Estado</ion-col>
-	</ion-row>
-	<div *ngIf="sensorData">
-		<ion-row *ngFor="let data of sensorData">
-			<ion-col class="centered-cell">{{ data.medicionId }}</ion-col>
-			<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
-			<ion-col class="centered-cell">{{ data.valor }}</ion-col>
-			<ion-col class="centered-cell">
-				<app-display-status-box [sensorValue]="data.valor"></app-display-status-box>
-			</ion-col>
+<ion-header [translucent]="true" class="custom-header">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/devices/{{ dispositivoId }}"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Mediciones dispositivo {{ dispositivoId }}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-grid>
+		<ion-row class="header-row">
+			<ion-col class="header-col centered-cell">ID</ion-col>
+			<ion-col class="header-col centered-cell">Fecha</ion-col>
+			<ion-col class="header-col centered-cell">Valor</ion-col>
+			<ion-col class="header-col centered-cell">Estado</ion-col>
 		</ion-row>
-	</div>
-</ion-grid>
+		<div *ngIf="sensorData">
+			<ion-row *ngFor="let data of sensorData">
+				<ion-col class="centered-cell">{{ data.medicionId }}</ion-col>
+				<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
+				<ion-col class="centered-cell">{{ data.valor }}</ion-col>
+				<ion-col class="centered-cell">
+					<app-display-status-box [sensorValue]="data.valor"></app-display-status-box>
+				</ion-col>
+			</ion-row>
+		</div>
+	</ion-grid>
+</ion-content>
