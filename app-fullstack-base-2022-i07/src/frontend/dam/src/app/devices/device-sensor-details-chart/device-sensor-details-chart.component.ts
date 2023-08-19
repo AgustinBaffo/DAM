@@ -30,7 +30,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 
 	async ngOnInit() {
 
-		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceId)
+		await this._dispositivoService.getDeviceCurrentValueById(this.deviceId)
 			.then((ret) => {
 				this.sensorValue = Number(ret.currentValue);
 			})
@@ -51,7 +51,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 	}
 
 	startTimerUpdateCurrentValue() {
-		this.timerUpdateCurrentValue = setInterval(this.updateChart.bind(this), 5000); // @todo: change to 10000
+		this.timerUpdateCurrentValue = setInterval(this.updateChart.bind(this), 10000);
 	}
 
 	async updateChart() {
@@ -60,7 +60,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 		// a) deadlock?
 		// b) se vuelve a ejecutar timerUpdateCurrentValue->updateChart() y se stackean muchas consultas sin respuestas
 		// usar timeout
-		await this._dispositivoService.getDeviceCurrentValueByID(this.deviceId)
+		await this._dispositivoService.getDeviceCurrentValueById(this.deviceId)
 			.then((ret) => {
 				this.sensorValue = Number(ret.currentValue);
 			})

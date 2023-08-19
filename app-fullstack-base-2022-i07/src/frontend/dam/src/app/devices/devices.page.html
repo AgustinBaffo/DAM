@@ -3,7 +3,7 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Dispositivo {{ dispositivoId }}</ion-title>
+		<ion-title>Dispositivo {{ deviceId }}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -11,17 +11,17 @@
 	<div class="container">
 		<div class="centered">
 			<div class="item" style="width: 50%;">
-				<app-device-sensor-details-chart [deviceId]="dispositivoId" class="small"></app-device-sensor-details-chart>
+				<app-device-sensor-details-chart [deviceId]="deviceId" class="small"></app-device-sensor-details-chart>
 			</div>
 			<div class="item" style="width: 50%;">
-				<app-electrovalve-manager [electrovalveId]="dispositivoId" class="small"></app-electrovalve-manager>
+				<app-electrovalve-manager [electrovalveId]="electrovalveId" class="small"></app-electrovalve-manager>
 			</div>
 		</div>
 		<div class="centered">
-			<ion-button routerLink="/devices/{{ dispositivoId }}/measurements" class="medium-width">Ver todas las mediciones</ion-button>
+			<ion-button routerLink="/devices/{{ deviceId }}/measurements" class="medium-width">Ver todas las mediciones</ion-button>
 		</div>
 		<div class="centered">
-			<ion-button routerLink="/electrovalves/{{ dispositivoId }}/registers" class="medium-width">Registros de riego</ion-button>
+			<ion-button routerLink="/electrovalves/{{ deviceId }}/registers" class="medium-width">Registros de riego</ion-button>
 		</div>
 	</div>
 </ion-content>

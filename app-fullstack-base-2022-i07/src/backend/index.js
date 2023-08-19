@@ -59,7 +59,7 @@ app.listen(PORT, function (req, res) {
 });
 
 app.get('/dispositivosEstados/', function (req, res, next) {
-    /// @TODO: Deberia usar MAX(fecha) pero cuando como hay fechas repetidas devuelve sensores repetidos
+    /// @todo: Deberia usar MAX(fecha) pero como hay fechas repetidas devuelve sensores repetidos
     const query = `
         SELECT d.dispositivoId, d.nombre, d.ubicacion, m.valor, m.fecha
         FROM Dispositivos d

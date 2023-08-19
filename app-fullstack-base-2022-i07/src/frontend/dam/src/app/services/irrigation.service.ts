@@ -17,7 +17,7 @@ export class IrrigationService {
 		return firstValueFrom(this._http.get(`http://localhost:8000/irrigation/${id}`));
 	}
 
-	getCurrentValueByID(id: number): Promise<any> {
+	getCurrentValueById(id: number): Promise<any> {
 		return firstValueFrom(this._http.get(`http://localhost:8000/irrigation/${id}/currentValue`));
 	}
 

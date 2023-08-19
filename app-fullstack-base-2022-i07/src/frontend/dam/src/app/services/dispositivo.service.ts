@@ -21,7 +21,11 @@ export class DispositivoService {
     return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/mediciones`));
   }
 
-  getDeviceCurrentValueByID(id: number): Promise<any> {
+  getDeviceCurrentValueById(id: number): Promise<any> {
     return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/currentValue`));
+  }
+
+  getElectrovalveByDeviceId(id: number): Promise<any> {
+    return firstValueFrom(this._http.get(`http://localhost:8000/dispositivo/${id}/electrovalveId`));
   }
 }
