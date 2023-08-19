@@ -126,11 +126,11 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 				plotBands: [{
 					from: 0,
 					to: 10,
-					color: '#55BF3B' // green
+					color: '#DDDF0D' // yellow
 				}, {
 					from: 10,
 					to: 30,
-					color: '#DDDF0D' // yellow
+					color: '#55BF3B' // green
 				}, {
 					from: 30,
 					to: 100,
