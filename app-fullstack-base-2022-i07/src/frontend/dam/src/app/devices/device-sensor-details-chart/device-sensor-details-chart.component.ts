@@ -66,11 +66,11 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 				console.log(error)
 			})
 
-		console.log('Update chart: ' + this.sensorValue);
+		console.log('Update chart: ' + parseFloat(this.sensorValue.toFixed(2)));
 		this.myChart.update({
 			series: [{
 				name: 'Humedad',
-				data: [this.sensorValue],
+				data: [parseFloat(this.sensorValue.toFixed(2))],
 				tooltip: {
 					valueSuffix: ' Cb'
 				}
@@ -139,7 +139,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 
 			series: [{
 				name: 'Humedad',
-				data: [this.sensorValue],
+				data: [parseFloat(this.sensorValue.toFixed(2))],
 				tooltip: {
 					valueSuffix: ' Cb'
 				}

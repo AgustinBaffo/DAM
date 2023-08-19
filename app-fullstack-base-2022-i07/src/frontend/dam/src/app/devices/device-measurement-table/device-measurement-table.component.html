@@ -19,7 +19,7 @@
 			<ion-row *ngFor="let data of sensorData">
 				<ion-col class="centered-cell">{{ data.medicionId }}</ion-col>
 				<ion-col class="centered-cell">{{ data.fecha | dateFormat }}</ion-col>
-				<ion-col class="centered-cell">{{ data.valor }}</ion-col>
+				<ion-col class="centered-cell">{{ data.valor | number:'1.2-2'}}</ion-col>
 				<ion-col class="centered-cell">
 					<app-display-status-box [sensorValue]="data.valor"></app-display-status-box>
 				</ion-col>
