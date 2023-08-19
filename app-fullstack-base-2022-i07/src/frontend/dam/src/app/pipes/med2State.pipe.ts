@@ -17,7 +17,7 @@ export class Med2State implements PipeTransform {
 		} else if (value <= 60) {
 			return "Seco";
 		}
-		// > 60 va a ser invalido
+		// > 60 is invalid
 		return "Invalido";
 	}
 

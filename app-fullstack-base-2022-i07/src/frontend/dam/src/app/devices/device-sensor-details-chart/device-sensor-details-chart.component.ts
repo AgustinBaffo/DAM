@@ -1,7 +1,5 @@
 // Before run: npm install --save highcharts
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
-// import { timeout } from 'rxjs/operators';
 
 import { DispositivoService } from 'src/app/services/dispositivo.service'
 
@@ -26,7 +24,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 	private chartOptions: any = 0;
 	private timerUpdateCurrentValue: any = 0;
 
-	constructor(private _dispositivoService: DispositivoService, private _actRouter: ActivatedRoute) { }
+	constructor(private _dispositivoService: DispositivoService) { }
 
 	async ngOnInit() {
 
@@ -68,11 +66,11 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 				console.log(error)
 			})
 
-		console.log('Update chart: ' + this.sensorValue);
+		console.log('Update chart: ' + parseFloat(this.sensorValue.toFixed(2)));
 		this.myChart.update({
 			series: [{
 				name: 'Humedad',
-				data: [this.sensorValue],
+				data: [parseFloat(this.sensorValue.toFixed(2))],
 				tooltip: {
 					valueSuffix: ' Cb'
 				}
@@ -141,7 +139,7 @@ export class DeviceSensorDetailsChartComponent implements OnInit, OnDestroy {
 
 			series: [{
 				name: 'Humedad',
-				data: [this.sensorValue],
+				data: [parseFloat(this.sensorValue.toFixed(2))],
 				tooltip: {
 					valueSuffix: ' Cb'
 				}

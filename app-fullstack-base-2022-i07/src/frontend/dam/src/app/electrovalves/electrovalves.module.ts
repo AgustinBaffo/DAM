@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ElectrovalvesPageRoutingModule } from './electrovalves-routing.module';
-import { DateFormatPipe } from '../pipes/date-format.pipe';
+import { DateFormatPipe } from 'src/app/pipes/date-format.pipe';
 
 import { ElectrovalvesPage } from './electrovalves.page';
 import { ElectrovalveManagerComponent } from './electrovalve-manager/electrovalve-manager.component';

@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { DevicesPage } from './devices.page';
 
 import { DevicesPageRoutingModule } from './devices-routing.module';
-import { ElectrovalvesPageModule } from '../electrovalves/electrovalves.module';
-import { DateFormatPipe } from '../pipes/date-format.pipe';
+import { ElectrovalvesPageModule } from 'src/app/electrovalves/electrovalves.module';
+import { DateFormatPipe } from 'src/app/pipes/date-format.pipe';
 
 
 import { DeviceMeasurementTableComponent } from './device-measurement-table/device-measurement-table.component';
@@ -16,8 +16,8 @@ import { DeviceSensorDetailsChartComponent } from './device-sensor-details-chart
 import { DevicesSummaryTableComponent } from './devices-summary-table/devices-summary-table.component';
 import { DisplayStatusBoxComponent } from './display-status-box/display-status-box.component';
 
-import { Med2State } from '../pipes/med2State.pipe';
-import { HoverClickableColorDirective } from '../directives/hover-clickable-color.directive';
+import { Med2State } from 'src/app/pipes/med2State.pipe';
+import { HoverClickableColorDirective } from 'src/app/directives/hover-clickable-color.directive';
 
 @NgModule({
 	imports: [
