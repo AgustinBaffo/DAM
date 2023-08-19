@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MeasurementsSimulatorService } from '../services/measurements-simulator.service';
+import { MeasurementsSimulatorService } from 'src/app/services/measurements-simulator.service';
 
 @Component({
 	selector: 'app-home',
